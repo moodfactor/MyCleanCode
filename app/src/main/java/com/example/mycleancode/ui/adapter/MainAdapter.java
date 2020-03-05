@@ -35,7 +35,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.GitHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull GitHolder holder, int position) {
-
+        holder.setData(repos.get(position));
     }
 
     @Override

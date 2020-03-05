@@ -7,9 +7,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static com.example.mycleancode.data.network.Network.URL_API;
-import static com.example.mycleancode.utils.Consts.USERNAME;
-
 class MainPresenter extends BaseRequest {
     private MainView view;
 
@@ -20,7 +17,7 @@ class MainPresenter extends BaseRequest {
 
     void getRepos() {
         view.onShowLoading();
-        getRoutes().getRepos(USERNAME, URL_API).enqueue(new Callback<GitRepository>() {
+        getRoutes().getRepos().enqueue(new Callback<GitRepository>() {
             @Override
             public void onResponse(Call<GitRepository> call, Response<GitRepository> response) {
                 view.onHideLoading();
