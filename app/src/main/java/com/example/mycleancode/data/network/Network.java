@@ -8,7 +8,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Network {
-    public static String URL_API = "https://api.github.com/";
+    public static String BASEURL = "https://api.github.com/";
 
     public static Retrofit builder() {
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
@@ -20,7 +20,7 @@ public class Network {
                 .addInterceptor(logging);
 
         return new Retrofit.Builder()
-                .baseUrl(URL_API)
+                .baseUrl(BASEURL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okhttpClientBuilder.build())
                 .build();

@@ -1,7 +1,9 @@
 package com.example.mycleancode.ui.main;
 
-import com.example.mycleancode.data.repo.GitRepository;
+import com.example.mycleancode.data.model.Repo;
 import com.example.mycleancode.ui.base.BaseRequest;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -17,9 +19,9 @@ class MainPresenter extends BaseRequest {
 
     void getRepos() {
         view.onShowLoading();
-        getRoutes().getRepos().enqueue(new Callback<GitRepository>() {
+        getRoutes().getRepos().enqueue(new Callback<List<Repo>>() {
             @Override
-            public void onResponse(Call<GitRepository> call, Response<GitRepository> response) {
+            public void onResponse(Call<List<Repo>> call, Response<List<Repo>> response) {
                 view.onHideLoading();
                 if (response.isSuccessful()) {
                     view.onSuccess(response.body());
@@ -27,7 +29,7 @@ class MainPresenter extends BaseRequest {
             }
 
             @Override
-            public void onFailure(Call<GitRepository> call, Throwable t) {
+            public void onFailure(Call<List<Repo>> call, Throwable t) {
                 view.onHideLoading();
                 view.onError(t.getMessage());
             }

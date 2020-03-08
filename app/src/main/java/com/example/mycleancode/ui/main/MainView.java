@@ -1,11 +1,13 @@
 package com.example.mycleancode.ui.main;
 
-import com.example.mycleancode.data.repo.GitRepository;
+import com.example.mycleancode.data.model.Repo;
 import com.example.mycleancode.ui.base.BaseView;
+
+import java.util.List;
 
 interface MainView extends BaseView {
 
-    void onSuccess(GitRepository result);
+    void onSuccess(List<Repo> result);
 
     void onError(String message);
 }

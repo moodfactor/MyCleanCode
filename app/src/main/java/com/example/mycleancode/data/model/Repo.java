@@ -223,6 +223,12 @@ public class Repo {
     @SerializedName("forks_count")
     private int forksCount;
 
+    public Repo(String name, String description, String language) {
+        this.name = name;
+        this.description = description;
+        this.language = language;
+    }
+
     public int getStargazersCount() {
         return stargazersCount;
     }
@@ -886,4 +892,5 @@ public class Repo {
                         ",forks_count = '" + forksCount + '\'' +
                         "}";
     }
+
 }

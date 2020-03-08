@@ -58,148 +58,148 @@ public class Owner {
     @SerializedName("organizations_url")
     private String organizationsUrl;
 
-    public String getGistsUrl() {
-        return gistsUrl;
-    }
-
     public void setGistsUrl(String gistsUrl) {
         this.gistsUrl = gistsUrl;
     }
 
-    public String getReposUrl() {
-        return reposUrl;
+    public String getGistsUrl() {
+        return gistsUrl;
     }
 
     public void setReposUrl(String reposUrl) {
         this.reposUrl = reposUrl;
     }
 
-    public String getFollowingUrl() {
-        return followingUrl;
+    public String getReposUrl() {
+        return reposUrl;
     }
 
     public void setFollowingUrl(String followingUrl) {
         this.followingUrl = followingUrl;
     }
 
-    public String getStarredUrl() {
-        return starredUrl;
+    public String getFollowingUrl() {
+        return followingUrl;
     }
 
     public void setStarredUrl(String starredUrl) {
         this.starredUrl = starredUrl;
     }
 
-    public String getLogin() {
-        return login;
+    public String getStarredUrl() {
+        return starredUrl;
     }
 
     public void setLogin(String login) {
         this.login = login;
     }
 
-    public String getFollowersUrl() {
-        return followersUrl;
+    public String getLogin() {
+        return login;
     }
 
     public void setFollowersUrl(String followersUrl) {
         this.followersUrl = followersUrl;
     }
 
-    public String getType() {
-        return type;
+    public String getFollowersUrl() {
+        return followersUrl;
     }
 
     public void setType(String type) {
         this.type = type;
     }
 
-    public String getUrl() {
-        return url;
+    public String getType() {
+        return type;
     }
 
     public void setUrl(String url) {
         this.url = url;
     }
 
-    public String getSubscriptionsUrl() {
-        return subscriptionsUrl;
+    public String getUrl() {
+        return url;
     }
 
     public void setSubscriptionsUrl(String subscriptionsUrl) {
         this.subscriptionsUrl = subscriptionsUrl;
     }
 
-    public String getReceivedEventsUrl() {
-        return receivedEventsUrl;
+    public String getSubscriptionsUrl() {
+        return subscriptionsUrl;
     }
 
     public void setReceivedEventsUrl(String receivedEventsUrl) {
         this.receivedEventsUrl = receivedEventsUrl;
     }
 
-    public String getAvatarUrl() {
-        return avatarUrl;
+    public String getReceivedEventsUrl() {
+        return receivedEventsUrl;
     }
 
     public void setAvatarUrl(String avatarUrl) {
         this.avatarUrl = avatarUrl;
     }
 
-    public String getEventsUrl() {
-        return eventsUrl;
+    public String getAvatarUrl() {
+        return avatarUrl;
     }
 
     public void setEventsUrl(String eventsUrl) {
         this.eventsUrl = eventsUrl;
     }
 
-    public String getHtmlUrl() {
-        return htmlUrl;
+    public String getEventsUrl() {
+        return eventsUrl;
     }
 
     public void setHtmlUrl(String htmlUrl) {
         this.htmlUrl = htmlUrl;
     }
 
-    public boolean isSiteAdmin() {
-        return siteAdmin;
+    public String getHtmlUrl() {
+        return htmlUrl;
     }
 
     public void setSiteAdmin(boolean siteAdmin) {
         this.siteAdmin = siteAdmin;
     }
 
-    public int getId() {
-        return id;
+    public boolean isSiteAdmin() {
+        return siteAdmin;
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public String getGravatarId() {
-        return gravatarId;
+    public int getId() {
+        return id;
     }
 
     public void setGravatarId(String gravatarId) {
         this.gravatarId = gravatarId;
     }
 
-    public String getNodeId() {
-        return nodeId;
+    public String getGravatarId() {
+        return gravatarId;
     }
 
     public void setNodeId(String nodeId) {
         this.nodeId = nodeId;
     }
 
-    public String getOrganizationsUrl() {
-        return organizationsUrl;
+    public String getNodeId() {
+        return nodeId;
     }
 
     public void setOrganizationsUrl(String organizationsUrl) {
         this.organizationsUrl = organizationsUrl;
+    }
+
+    public String getOrganizationsUrl() {
+        return organizationsUrl;
     }
 
     @Override

@@ -1,18 +1,33 @@
 package com.example.mycleancode.di.module;
 
-import com.example.mycleancode.data.model.Repo;
-import com.example.mycleancode.data.repo.GitServices;
+import android.app.Activity;
+import android.content.Context;
 
-import javax.inject.Singleton;
+import com.example.mycleancode.di.qualifier.ApplicationContext;
+import com.example.mycleancode.di.scopes.ActivityScope;
+import com.example.mycleancode.di.scopes.ApplicationScope;
 
 import dagger.Module;
 import dagger.Provides;
 
 @Module //mendefinisikan kelas yang menyediakan dependencies
 public class ActivityModule {
-    @Provides //mendefinisikan method-method yang ada di kelas @Module
-    @Singleton
-    public GitServices provideGitRepository() {
-        return new GitServices(new Repo());
+    private Activity activity;
+
+    public ActivityModule(Activity activity) {
+        this.activity = activity;
+    }
+
+    @Provides
+    @ApplicationScope
+    @ApplicationContext
+    Context provideContext() {
+        return activity;
+    }
+
+    @Provides
+    @ActivityScope
+    Activity provideActivity() {
+        return activity;
     }
 }

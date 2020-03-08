@@ -4,8 +4,7 @@ import android.app.Application;
 
 import com.example.mycleancode.di.component.AppComponent;
 import com.example.mycleancode.di.component.DaggerAppComponent;
-import com.example.mycleancode.di.module.ActivityModule;
-import com.example.mycleancode.di.module.ApplicationModule;
+import com.example.mycleancode.di.module.AppModule;
 
 public class App extends Application {
     private AppComponent component;
@@ -14,7 +13,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         component = DaggerAppComponent.builder()
-                .applicationModule(new ApplicationModule(this))
+                .appModule(new AppModule(this))
                 .build();
     }
 

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.mycleancode.R;
 import com.example.mycleancode.data.model.Repo;
@@ -15,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import de.mateware.snacky.Snacky;
 
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.GitHolder> {
 
@@ -44,9 +46,11 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.GitHolder> {
     }
 
     class GitHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.tv_repo_name)
+        @BindView(R.id.tv_name)
         TextView repoName;
-        @BindView(R.id.tv_language)
+        @BindView(R.id.tv_desc)
+        TextView repoDesc;
+        @BindView(R.id.tv_lang)
         TextView repoLang;
 
         GitHolder(@NonNull View itemView) {
@@ -55,8 +59,13 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.GitHolder> {
         }
 
         void setData(final Repo repo) {
-            repoName.setText(repo.getFullName());
+            repoName.setText(repo.getName());
+            repoDesc.setText(repo.getDescription());
             repoLang.setText(repo.getLanguage());
         }
+    }
+
+    public interface ClickListener {
+        void Click(String name);
     }
 }
