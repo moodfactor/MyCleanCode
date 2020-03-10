@@ -7,8 +7,9 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static com.example.mycleancode.BuildConfig.BASEURL;
+
 public class Network {
-    public static String BASEURL = "https://api.github.com/";
 
     public static Retrofit builder() {
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();

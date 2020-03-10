@@ -9,10 +9,7 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-
-        buildConfigField "int", "LIMIT", "100"
         buildConfigField "String", "BASEURL", '"https://api.github.com/"'
-        buildConfigField "int", "CACHETIME", "432000"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -35,7 +32,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    // android support libraries
+    //Android support libraries
     implementation "androidx.appcompat:appcompat:$rootProject.supportLibraryVersion"
     implementation "androidx.recyclerview:recyclerview:$rootProject.supportLibraryVersion"
     implementation "androidx.cardview:cardview:$rootProject.supportCardviewVersion"
@@ -43,27 +40,27 @@ dependencies {
     implementation "com.google.android.material:material:$rootProject.supportLibraryVersion"
     implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVersion"
 
-    // image
+    //Image
     implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
 
-    //calligraphy
+    //Calligraphy
     implementation "uk.co.chrisjenx:calligraphy:$rootProject.calligraphyVersion"
 
-    //designCustom
+    //DesignCustom
     implementation "com.github.matecode:Snacky:$rootProject.snackyVersion"
 
     //JSON Parsing
     implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofitVersion"
     implementation "com.google.code.gson:gson:$rootProject.gsonVersion"
 
-    //http logging
+    //Http logging
     implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttpVersion"
 
-    //rest interactions
+    //Rest interactions
     implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.retrofitVersion"
 
-    // dependency injection
+    //Dependency injection
     implementation "com.google.dagger:dagger:$rootProject.dagger2Version"
     annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
 
@@ -71,11 +68,11 @@ dependencies {
     implementation "com.jakewharton:butterknife:$rootProject.butterknifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterknifeVersion"
 
-    // reactive
+    //Reactive
     implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxjava2Version"
     implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroidVersion"
 
-    //room
+    //Room
     implementation "androidx.room:room-runtime:$rootProject.roomVersion"
     annotationProcessor "androidx.room:room-compiler:$rootProject.roomVersion"
 
