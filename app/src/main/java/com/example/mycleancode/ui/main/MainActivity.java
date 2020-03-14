@@ -1,10 +1,18 @@
 package com.example.mycleancode.ui.main;
 
+import android.content.Context;
 import android.widget.Toast;
 
-import com.example.mycleancode.App;
+import com.example.mycleancode.MyApplication;
 import com.example.mycleancode.R;
 import com.example.mycleancode.data.model.Repo;
+import com.example.mycleancode.data.network.Routes;
+import com.example.mycleancode.di.component.ApplicationComponent;
+import com.example.mycleancode.di.component.DaggerMainActivityComponent;
+import com.example.mycleancode.di.component.MainActivityComponent;
+import com.example.mycleancode.di.module.MainActivityContextModule;
+import com.example.mycleancode.di.qualifier.ActivityContext;
+import com.example.mycleancode.di.qualifier.ApplicationContext;
 import com.example.mycleancode.ui.adapter.MainAdapter;
 import com.example.mycleancode.ui.base.BaseActivity;
 
@@ -21,9 +29,22 @@ public class MainActivity extends BaseActivity implements MainView, MainAdapter.
 
     @BindView(R.id.lst_repo)
     RecyclerView lstRepo;
-
-    MainAdapter adapter;
+    MainActivityComponent mainActivityComponent;
     private List<Repo> repos = new ArrayList<>();
+
+    @Inject
+    MainAdapter adapter;
+
+    @Inject
+    public Routes routes;
+
+    @Inject
+    @ApplicationContext
+    public Context context;
+
+    @Inject
+    @ActivityContext
+    public Context activityContext;
 
     @Override
     public int contentView() {
@@ -32,11 +53,16 @@ public class MainActivity extends BaseActivity implements MainView, MainAdapter.
 
     @Override
     public void onCreated() {
-        ((App) getApplication()).getComponent().inject(this); //mendefinisikan sebuah request dependency, bisa berupa konstruktor, method, maupun field
+        ApplicationComponent applicationComponent = MyApplication.get(this).getApplicationComponent();
+        mainActivityComponent = DaggerMainActivityComponent.builder()
+                .mainActivityContextModule(new MainActivityContextModule(this))
+                .appComponent(applicationComponent)
+                .build();
+        mainActivityComponent.injectMainActivity(this);
 
         new MainPresenter(this).getRepos();
+
         lstRepo.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new MainAdapter(repos, this);
         lstRepo.setAdapter(adapter);
     }
 

@@ -10,7 +10,10 @@ import android.widget.Toast;
 import com.example.mycleancode.R;
 import com.example.mycleancode.data.model.Repo;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.inject.Inject;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,11 +24,12 @@ import de.mateware.snacky.Snacky;
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.GitHolder> {
 
     private List<Repo> repos;
-    private Context context;
+    private MainAdapter.ClickListener clickListener;
 
-    public MainAdapter(List<Repo> repos, Context context) {
-        this.repos = repos;
-        this.context = context;
+    @Inject
+    public MainAdapter(ClickListener clickListener) {
+        this.clickListener = clickListener;
+        repos = new ArrayList<>();
     }
 
     @NonNull
@@ -37,7 +41,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.GitHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull GitHolder holder, int position) {
-        holder.setData(repos.get(position));
+        holder.setFieldData(repos.get(position));
     }
 
     @Override
@@ -58,7 +62,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.GitHolder> {
             ButterKnife.bind(this, itemView);
         }
 
-        void setData(final Repo repo) {
+        void setFieldData(final Repo repo) {
             repoName.setText(repo.getName());
             repoDesc.setText(repo.getDescription());
             repoLang.setText(repo.getLanguage());
