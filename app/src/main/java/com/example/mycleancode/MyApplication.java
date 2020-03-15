@@ -1,32 +1,23 @@
 package com.example.mycleancode;
 
-import android.app.Activity;
 import android.app.Application;
 
-import com.example.mycleancode.di.component.ApplicationComponent;
-import com.example.mycleancode.di.component.DaggerApplicationComponent;
-import com.example.mycleancode.di.module.ContextModule;
+import com.example.mycleancode.di.component.AppComponent;
+import com.example.mycleancode.di.component.DaggerAppComponent;
+import com.example.mycleancode.di.module.AppModule;
 
 public class MyApplication extends Application {
-    ApplicationComponent applicationComponent;
+    AppComponent appComponent;
 
     @Override
     public void onCreate() {
         super.onCreate();
-
-        applicationComponent = DaggerApplicationComponent
-                .builder()
-                .contextModule(new ContextModule(this))
+        appComponent = DaggerAppComponent.builder()
+                .appModule(new AppModule(this))
                 .build();
-        applicationComponent.inject(this);
-
     }
 
-    public static MyApplication get(Activity activity){
-        return (MyApplication) activity.getApplication();
-    }
-
-    public ApplicationComponent getApplicationComponent() {
-        return applicationComponent;
+    public AppComponent getAppComponent() {
+        return appComponent;
     }
 }

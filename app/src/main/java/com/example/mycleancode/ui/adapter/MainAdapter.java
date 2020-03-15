@@ -24,12 +24,11 @@ import de.mateware.snacky.Snacky;
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.GitHolder> {
 
     private List<Repo> repos;
-    private MainAdapter.ClickListener clickListener;
+    private Context context;
 
-    @Inject
-    public MainAdapter(ClickListener clickListener) {
-        this.clickListener = clickListener;
-        repos = new ArrayList<>();
+    public MainAdapter(List<Repo> repos, Context context) {
+        this.repos = repos;
+        this.context = context;
     }
 
     @NonNull
@@ -67,9 +66,5 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.GitHolder> {
             repoDesc.setText(repo.getDescription());
             repoLang.setText(repo.getLanguage());
         }
-    }
-
-    public interface ClickListener {
-        void Click(String name);
     }
 }
