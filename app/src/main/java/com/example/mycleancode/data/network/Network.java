@@ -24,7 +24,7 @@ public class Network {
         return new Retrofit.Builder()
                 .baseUrl(BASEURL)
                 .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+//                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(okhttpClientBuilder.build())
                 .build();
     }

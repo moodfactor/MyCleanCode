@@ -1,7 +1,7 @@
 package com.example.mycleancode.di.component;
 
+import com.example.mycleancode.di.module.ActivityModule;
 import com.example.mycleancode.di.module.AppModule;
-import com.example.mycleancode.di.module.NetworkModule;
 import com.example.mycleancode.di.scopes.ApplicationScope;
 import com.example.mycleancode.ui.main.MainActivity;
 
@@ -11,7 +11,7 @@ import dagger.Component;
 
 @Singleton
 @ApplicationScope
-@Component(modules = {AppModule.class, NetworkModule.class})
+@Component(modules = {AppModule.class, ActivityModule.class})
 public interface AppComponent {
     void inject(MainActivity activity);
 }
