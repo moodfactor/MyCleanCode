@@ -8,15 +8,22 @@ import com.example.mycleancode.ui.base.BaseActivity;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import butterknife.BindView;
 
 public class MainActivity extends BaseActivity implements MainView {
 
     @BindView(R.id.lst_repo)
     RecyclerView lstRepo;
+    @BindView(R.id.swRepo)
+    SwipeRefreshLayout swRepo;
 
+    MainPresenter mainPresenter;
     MainAdapter adapter;
 
     @Override
@@ -27,8 +34,14 @@ public class MainActivity extends BaseActivity implements MainView {
     @Override
     public void onCreated() {
         ((MyApplication) getApplication()).getAppComponent().inject(this); //mendefinisikan sebuah request dependency, bisa berupa konstruktor, method, maupun field
+        mainPresenter = new MainPresenter(this);
+        mainPresenter.getRepos();
 
-        new MainPresenter(this).getRepos();
+        swRepo.setColorSchemeResources(R.color.colorAccent);
+        swRepo.setOnRefreshListener(() -> {
+            mainPresenter.getRepos();
+            swRepo.setRefreshing(false);
+        });
     }
 
     @Override

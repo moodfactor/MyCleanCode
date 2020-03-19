@@ -1,10 +1,13 @@
 package com.example.mycleancode.ui.main;
 
 import com.example.mycleancode.data.model.Repo;
+import com.example.mycleancode.data.network.Routes;
 import com.example.mycleancode.ui.base.BaseRequest;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.inject.Inject;
 
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -15,6 +18,7 @@ class MainPresenter extends BaseRequest {
     MainView view;
     List<Repo> repos = new ArrayList<>();
 
+    @Inject
     MainPresenter(MainView view) {
         this.view = view;
         initialize();
@@ -34,7 +38,6 @@ class MainPresenter extends BaseRequest {
                     @Override
                     public void onNext(List<Repo> repoList) {
                         repos.addAll(repoList);
-                        view.onSuccess(repoList);
                     }
 
                     @Override
