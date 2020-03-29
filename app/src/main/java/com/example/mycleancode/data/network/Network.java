@@ -16,9 +16,9 @@ public class Network {
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient.Builder okhttpClientBuilder = new OkHttpClient.Builder()
-                .readTimeout(60, TimeUnit.SECONDS)
-                .writeTimeout(60, TimeUnit.SECONDS)
-                .connectTimeout(60, TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
+                .writeTimeout(30, TimeUnit.SECONDS)
+                .connectTimeout(30, TimeUnit.SECONDS)
                 .addInterceptor(logging);
 
         return new Retrofit.Builder()

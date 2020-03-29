@@ -1,7 +1,6 @@
 package com.example.mycleancode.ui.main;
 
 import com.example.mycleancode.data.model.Repo;
-import com.example.mycleancode.data.network.Routes;
 import com.example.mycleancode.ui.base.BaseRequest;
 
 import java.util.ArrayList;
@@ -25,6 +24,7 @@ class MainPresenter extends BaseRequest {
     }
 
     void getRepos() {
+        view.onHideError();
         view.onShowLoading();
         getRoutes().getRepos()
                 .subscribeOn(Schedulers.io())
@@ -43,12 +43,15 @@ class MainPresenter extends BaseRequest {
                     @Override
                     public void onError(Throwable e) {
                         view.onError(e.getMessage());
+                        view.onHideLoading();
+                        view.onErrorLoading();
                     }
 
                     @Override
                     public void onComplete() {
                         view.onHideLoading();
-                        view.onSuccess(repos);
+                        view.onHideError();
+                        view.onSuccessView(repos);
                     }
                 });
 

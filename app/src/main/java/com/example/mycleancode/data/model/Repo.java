@@ -1,8 +1,11 @@
 package com.example.mycleancode.data.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
-public class Repo {
+public class Repo implements Parcelable {
 
     @SerializedName("stargazers_count")
     private int stargazersCount;
@@ -223,10 +226,92 @@ public class Repo {
     @SerializedName("forks_count")
     private int forksCount;
 
-    public Repo(String name, String description, String language) {
-        this.name = name;
-        this.description = description;
-        this.language = language;
+    public static final Creator<Repo> CREATOR = new Creator<Repo>() {
+        @Override
+        public Repo createFromParcel(Parcel in) {
+            return new Repo(in);
+        }
+
+        @Override
+        public Repo[] newArray(int size) {
+            return new Repo[size];
+        }
+    };
+
+    public Repo() {
+    }
+
+    protected Repo(Parcel in) {
+        stargazersCount = in.readInt();
+        pushedAt = in.readString();
+        subscriptionUrl = in.readString();
+        language = in.readString();
+        branchesUrl = in.readString();
+        issueCommentUrl = in.readString();
+        labelsUrl = in.readString();
+        subscribersUrl = in.readString();
+        releasesUrl = in.readString();
+        svnUrl = in.readString();
+        id = in.readInt();
+        forks = in.readInt();
+        archiveUrl = in.readString();
+        gitRefsUrl = in.readString();
+        forksUrl = in.readString();
+        statusesUrl = in.readString();
+        sshUrl = in.readString();
+        fullName = in.readString();
+        size = in.readInt();
+        languagesUrl = in.readString();
+        htmlUrl = in.readString();
+        collaboratorsUrl = in.readString();
+        cloneUrl = in.readString();
+        name = in.readString();
+        pullsUrl = in.readString();
+        defaultBranch = in.readString();
+        hooksUrl = in.readString();
+        treesUrl = in.readString();
+        tagsUrl = in.readString();
+        jsonMemberPrivate = in.readByte() != 0;
+        contributorsUrl = in.readString();
+        hasDownloads = in.readByte() != 0;
+        notificationsUrl = in.readString();
+        openIssuesCount = in.readInt();
+        description = in.readString();
+        createdAt = in.readString();
+        watchers = in.readInt();
+        keysUrl = in.readString();
+        deploymentsUrl = in.readString();
+        hasProjects = in.readByte() != 0;
+        archived = in.readByte() != 0;
+        hasWiki = in.readByte() != 0;
+        updatedAt = in.readString();
+        commentsUrl = in.readString();
+        stargazersUrl = in.readString();
+        disabled = in.readByte() != 0;
+        gitUrl = in.readString();
+        hasPages = in.readByte() != 0;
+        commitsUrl = in.readString();
+        compareUrl = in.readString();
+        gitCommitsUrl = in.readString();
+        blobsUrl = in.readString();
+        gitTagsUrl = in.readString();
+        mergesUrl = in.readString();
+        downloadsUrl = in.readString();
+        hasIssues = in.readByte() != 0;
+        url = in.readString();
+        contentsUrl = in.readString();
+        milestonesUrl = in.readString();
+        teamsUrl = in.readString();
+        fork = in.readByte() != 0;
+        issuesUrl = in.readString();
+        eventsUrl = in.readString();
+        issueEventsUrl = in.readString();
+        assigneesUrl = in.readString();
+        openIssues = in.readInt();
+        watchersCount = in.readInt();
+        nodeId = in.readString();
+        homepage = in.readString();
+        forksCount = in.readInt();
     }
 
     public int getStargazersCount() {
@@ -893,4 +978,82 @@ public class Repo {
                         "}";
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(stargazersCount);
+        parcel.writeString(pushedAt);
+        parcel.writeString(subscriptionUrl);
+        parcel.writeString(language);
+        parcel.writeString(branchesUrl);
+        parcel.writeString(issueCommentUrl);
+        parcel.writeString(labelsUrl);
+        parcel.writeString(subscribersUrl);
+        parcel.writeString(releasesUrl);
+        parcel.writeString(svnUrl);
+        parcel.writeInt(id);
+        parcel.writeInt(forks);
+        parcel.writeString(archiveUrl);
+        parcel.writeString(gitRefsUrl);
+        parcel.writeString(forksUrl);
+        parcel.writeString(statusesUrl);
+        parcel.writeString(sshUrl);
+        parcel.writeString(fullName);
+        parcel.writeInt(size);
+        parcel.writeString(languagesUrl);
+        parcel.writeString(htmlUrl);
+        parcel.writeString(collaboratorsUrl);
+        parcel.writeString(cloneUrl);
+        parcel.writeString(name);
+        parcel.writeString(pullsUrl);
+        parcel.writeString(defaultBranch);
+        parcel.writeString(hooksUrl);
+        parcel.writeString(treesUrl);
+        parcel.writeString(tagsUrl);
+        parcel.writeByte((byte) (jsonMemberPrivate ? 1 : 0));
+        parcel.writeString(contributorsUrl);
+        parcel.writeByte((byte) (hasDownloads ? 1 : 0));
+        parcel.writeString(notificationsUrl);
+        parcel.writeInt(openIssuesCount);
+        parcel.writeString(description);
+        parcel.writeString(createdAt);
+        parcel.writeInt(watchers);
+        parcel.writeString(keysUrl);
+        parcel.writeString(deploymentsUrl);
+        parcel.writeByte((byte) (hasProjects ? 1 : 0));
+        parcel.writeByte((byte) (archived ? 1 : 0));
+        parcel.writeByte((byte) (hasWiki ? 1 : 0));
+        parcel.writeString(updatedAt);
+        parcel.writeString(commentsUrl);
+        parcel.writeString(stargazersUrl);
+        parcel.writeByte((byte) (disabled ? 1 : 0));
+        parcel.writeString(gitUrl);
+        parcel.writeByte((byte) (hasPages ? 1 : 0));
+        parcel.writeString(commitsUrl);
+        parcel.writeString(compareUrl);
+        parcel.writeString(gitCommitsUrl);
+        parcel.writeString(blobsUrl);
+        parcel.writeString(gitTagsUrl);
+        parcel.writeString(mergesUrl);
+        parcel.writeString(downloadsUrl);
+        parcel.writeByte((byte) (hasIssues ? 1 : 0));
+        parcel.writeString(url);
+        parcel.writeString(contentsUrl);
+        parcel.writeString(milestonesUrl);
+        parcel.writeString(teamsUrl);
+        parcel.writeByte((byte) (fork ? 1 : 0));
+        parcel.writeString(issuesUrl);
+        parcel.writeString(eventsUrl);
+        parcel.writeString(issueEventsUrl);
+        parcel.writeString(assigneesUrl);
+        parcel.writeInt(openIssues);
+        parcel.writeInt(watchersCount);
+        parcel.writeString(nodeId);
+        parcel.writeString(homepage);
+        parcel.writeInt(forksCount);
+    }
 }

@@ -8,7 +8,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="180dp"
+        android:layout_height="150dp"
         android:layout_marginStart="8dp"
         android:layout_marginVertical="5dp"
         android:layout_marginEnd="8dp"
@@ -26,7 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:adjustViewBounds="true"
-                android:scaleType="center"
+                android:scaleType="centerCrop"
                 android:src="@mipmap/github" />
 
             <View
@@ -34,6 +34,15 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 android:background="@drawable/bg_card" />
+
+            <ImageView
+                android:id="@+id/img_fav"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_gravity="right"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="16dp"
+                android:src="@drawable/ic_star_borderless" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -69,7 +78,7 @@
                         android:layout_marginRight="16dp"
                         android:textColor="#ffffff"
                         android:textSize="12sp"
-                        tools:text="Language Repository" />
+                        tools:text="@string/item_language" />
                 </LinearLayout>
 
                 <TextView
@@ -79,7 +88,9 @@
                     android:gravity="center_vertical"
                     android:paddingStart="20dp"
                     android:paddingEnd="20dp"
+                    android:ellipsize="end"
                     android:paddingBottom="20dp"
+                    android:maxLines="2"
                     android:textColor="@color/colorAccent"
                     android:textSize="14sp"
                     tools:text="Desc Repository" />

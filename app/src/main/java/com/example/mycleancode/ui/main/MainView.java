@@ -7,7 +7,11 @@ import java.util.List;
 
 interface MainView extends BaseView {
 
-    void onSuccess(List<Repo> repos);
+    void onSuccessView(List<Repo> repos);
 
     void onError(String message);
+
+    void onErrorLoading();
+
+    void onHideError();
 }

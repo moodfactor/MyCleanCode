@@ -3,13 +3,21 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:background="@color/colorPrimaryDark"
+    android:gravity="center"
     android:padding="16dp">
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/pull_request" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:text="Mohon Menunggu Sebentar"
-        android:textSize="12sp" />
+        android:layout_marginBottom="16dp"
+        android:text="@string/item_loading"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
 
 </LinearLayout>

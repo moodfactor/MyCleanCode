@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">MyCleanCode</string>
+    <string name="app_name">MyGithub</string>
+    <string name="message_error">Data Not Found</string>
+    <string name="message_no_data">Repository Not Found</string>
+    <string name="item_language">Language</string>
+    <string name="item_loading">Mohon Menunggu Sebentar..</string>
+    <string name="item_favorite">Favorite Added</string>
+    <string name="item_unfavorite">Favorite Removed</string>
 </resources>

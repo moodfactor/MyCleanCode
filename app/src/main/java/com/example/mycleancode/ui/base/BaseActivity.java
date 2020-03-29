@@ -66,7 +66,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
         Snacky.builder()
                 .setActivity(this)
                 .setText(message)
-                .setDuration(Snacky.LENGTH_SHORT)
+                .setDuration(Snacky.LENGTH_LONG)
                 .error()
                 .show();
     }
